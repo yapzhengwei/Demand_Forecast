@@ -5,8 +5,7 @@ def normalization(df, method='full_standardization',offset = 0,numeric_cols=None
     
     if method == 'full_standardization':
         fulldf = df.copy(deep=True)
-        for col in numeric_cols:
-            fulldf[col] = (fulldf[col]-np.mean(fulldf[col]))/np.std(fulldf[col])
+        fulldf[numeric_cols] = (fulldf[numeric_cols]-np.mean(fulldf[numeric_cols]))/np.std(fulldf[numeric_cols])
         return fulldf
             
     if method == 'long_term_average':
